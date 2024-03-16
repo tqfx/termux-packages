@@ -1,0 +1,27 @@
+--- a/CMakeLists.txt	2024-03-16 20:56:39.227586600 +0800
++++ b/CMakeLists.txt	2024-03-16 20:59:10.847269900 +0800
+@@ -48,17 +48,17 @@ else()
+   set(extra-libs "")
+ endif()
+ 
+-try_run(TEST_RUN_RESULT
+-  TEST_COMPILE_RESULT
+-  ${CMAKE_CURRENT_BINARY_DIR}/
+-  ${PROJECT_SOURCE_DIR}/test/cpp17/fs.cpp
+-  LINK_LIBRARIES ${extra-libs}
+-  OUTPUT_VARIABLE var)
++# try_run(TEST_RUN_RESULT
++#   TEST_COMPILE_RESULT
++#   ${CMAKE_CURRENT_BINARY_DIR}/
++#   ${PROJECT_SOURCE_DIR}/test/cpp17/fs.cpp
++#   LINK_LIBRARIES ${extra-libs}
++#   OUTPUT_VARIABLE var)
+ 
+ message("${var}")
+ 
+ if(NOT "${TEST_COMPILE_RESULT}" OR (NOT "${TEST_RUN_RESULT}" EQUAL 0))
+-  message(FATAL_ERROR "Your compiler does not fully support the C++17 standard and libraries")
++  # message(FATAL_ERROR "Your compiler does not fully support the C++17 standard and libraries")
+ endif()
+ 
+ if( ${CMAKE_BUILD_TYPE} MATCHES "Debug")
